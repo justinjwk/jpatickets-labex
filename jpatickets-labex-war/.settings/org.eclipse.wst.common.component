@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="jpatickets-labex-war">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="jpatickets-labex-impl-5.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/jpatickets-labex-impl/jpatickets-labex-impl">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jpatickets-labex-ejb-5.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/jpatickets-labex-ejb/jpatickets-labex-ejb">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="jpatickets-labex-war"/>
+        <property name="java-output-path" value="/jpatickets-labex-war/target/classes"/>
+    </wb-module>
+</project-modules>

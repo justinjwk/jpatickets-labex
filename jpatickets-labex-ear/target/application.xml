@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/application_7.xsd" version="7">
+  <application-name>jpatickets-labex-ear</application-name>
+  <description>This project provides the home for demonstrating concepts related to using
+        JPA on the server-side.</description>
+  <display-name>jpatickets-labex-ear</display-name>
+  <module>
+    <ejb>jpatickets-labex-ejb.jar</ejb>
+  </module>
+  <library-directory>lib</library-directory>
+</application>

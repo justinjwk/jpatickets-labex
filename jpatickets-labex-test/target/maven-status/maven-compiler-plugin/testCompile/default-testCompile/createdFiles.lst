@@ -1,0 +1,3 @@
+org/myorg/jpatickets/ejbclient/EventMgmtIT.class
+org/myorg/jpatickets/ejbclient/TicketsITFactory.class
+org/myorg/jpatickets/ejbclient/VenueMgmtIT.class

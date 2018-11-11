@@ -1,0 +1,2 @@
+INFO  10-11 20:59:16,303 [org.myorg.jpatickets.ejbclient.VenueMgmtIT] (VenueMgmtIT.java:venueEAR:29)  -*** venueEAR ***
+INFO  10-11 20:59:16,578 [org.myorg.jpatickets.ejbclient.VenueMgmtIT] (VenueMgmtIT.java:venueImportedEJB:41)  -*** venueImportedEJB ***

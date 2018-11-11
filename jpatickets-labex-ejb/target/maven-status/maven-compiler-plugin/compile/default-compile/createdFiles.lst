@@ -1,0 +1,8 @@
+org/myorg/jpatickets/ejb/TicketsInitTxEJB.class
+org/myorg/jpatickets/ejb/TicketsInitRemote.class
+org/myorg/jpatickets/ejb/VenueMgmtEJB.class
+org/myorg/jpatickets/ejb/EventMgmtRemote.class
+org/myorg/jpatickets/ejb/TicketsInitEJB.class
+org/myorg/jpatickets/ejb/VenueMgmtRemote.class
+org/myorg/jpatickets/ejb/EventMgmtEJB.class
+org/myorg/jpatickets/dto/EventDTO.class

@@ -1,0 +1,3 @@
+[20:59:06.650][info][DeployerRedeployMojo] Resolved container artifact org.codehaus.cargo:cargo-core-container-wildfly:jar:1.4.15 for container wildfly9x
+[20:59:07.679][info][dFly9xRemoteDeployer] The undeployment phase of the redeploy action has failed: org.codehaus.cargo.util.CargoException: Cannot undeploy deployable org.codehaus.cargo.container.deployable.EAR[jpatickets-labex-ear-5.0.0-SNAPSHOT.ear]
+[20:59:12.306][info][dFly9xRemoteDeployer] The undeployment phase of the redeploy action has failed: org.codehaus.cargo.util.CargoException: Cannot undeploy deployable org.codehaus.cargo.container.jboss.deployable.JBossWAR[jpatickets-labex-war.war]
