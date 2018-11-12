@@ -3,6 +3,8 @@ package org.myorg.jpatickets.dto;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.myorg.jpatickets.bo.Event;
+
 public class EventDTO implements Serializable {
     private static final long serialVersionUID = 4881952492348300544L;
     private int id;

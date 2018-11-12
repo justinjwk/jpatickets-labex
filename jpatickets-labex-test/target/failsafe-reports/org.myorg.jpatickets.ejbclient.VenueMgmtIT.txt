@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: org.myorg.jpatickets.ejbclient.VenueMgmtIT
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 2.596 s - in org.myorg.jpatickets.ejbclient.VenueMgmtIT

@@ -1,6 +1,7 @@
 package org.myorg.jpatickets.ejb;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,7 +17,6 @@ import org.myorg.jpatickets.bl.EventMgmt;
 import org.myorg.jpatickets.bl.EventMgmtImpl;
 import org.myorg.jpatickets.bl.UnavailableException;
 import org.myorg.jpatickets.bo.Event;
-import org.myorg.jpatickets.bo.Seat;
 import org.myorg.jpatickets.bo.Ticket;
 import org.myorg.jpatickets.bo.Venue;
 import org.myorg.jpatickets.dao.EventMgmtDAO;
@@ -26,11 +26,15 @@ import org.myorg.jpatickets.dto.EventDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static org.myorg.jpatickets.dao.EventMgmtDAO.EVENT;
+import static org.myorg.jpatickets.dao.EventMgmtDAO.VENUE_NAME;
+import static org.myorg.jpatickets.dao.EventMgmtDAO.NUM_TICKETS;
+
 @Stateless
 public class EventMgmtEJB implements EventMgmtRemote {
     private static final Logger logger = LoggerFactory.getLogger(EventMgmtEJB.class);
     
-    //@PersistenceContext(unitName="jpatickets-labex")
+    @PersistenceContext(unitName="jpatickets-labex")
     private EntityManager em;
     
     private EventMgmtDAO edao;
@@ -119,16 +123,22 @@ public class EventMgmtEJB implements EventMgmtRemote {
     
     @Override
     public Event getEventFetchedSome(int id) {
-        logger.debug("getEventFetchedSome({})", id);
-        Event event = eventMgmt.fetchEventTickets(id);
-        return event;
+    	logger.debug("getEventFetchedSome({})", id);
+        List<Event> events = em.createNamedQuery("JPATicketEvent.fetchEventTickets", 
+                Event.class)
+                .setParameter("eventId", id)
+                .getResultList();
+        return events.isEmpty() ? null : events.get(0);
     }
     
     @Override
     public Event getEventFetchedMore(int id) {
         logger.debug("getEventFetchedMore({})", id);
-        Event event = eventMgmt.fetchEventTicketsSeats(id);
-        return event;
+        List<Event> events = em.createNamedQuery("JPATicketEvent.fetchEventTicketsSeats", 
+                Event.class)
+                .setParameter("eventId", id)
+                .getResultList();
+        return events.isEmpty() ? null : events.get(0);
     }
     
     @Override
@@ -150,8 +160,22 @@ public class EventMgmtEJB implements EventMgmtRemote {
     
     @Override
     public EventDTO getEventFetchedDTO(int eventId) {
-        logger.debug("getEventFetchedDTO({})", eventId);
-        Map<String, Object> dtoData = edao.fetchEventDTOData(eventId);
+        @SuppressWarnings("unchecked")
+        List<Object[]> rows = em.createNamedQuery("JPATicketEvent.fetchEventDTO")
+                .setParameter("eventId", eventId)
+                .getResultList();
+        
+        Map<String, Object> dtoData = new HashMap<String, Object>();
+        if (!rows.isEmpty()) {
+            Object[] row = rows.get(0);
+            Event event = (Event) row[0];
+            String venueName = (String) row[1];
+            Number numTickets = (Number) row[2];
+            dtoData.put(EVENT, event);
+            dtoData.put(VENUE_NAME, venueName);
+            dtoData.put(NUM_TICKETS, numTickets.intValue());
+        }
+
         return toEventDTO(dtoData);
     }
     
